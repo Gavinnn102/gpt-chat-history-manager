@@ -1,0 +1,9 @@
+{
+  "categories": [
+    {"id": "work", "name": "Work"},
+    {"id": "learning", "name": "Learning"},
+    {"id": "projects", "name": "Projects"},
+    {"id": "writing", "name": "Writing"},
+    {"id": "other", "name": "Other"}
+  ]
+}
