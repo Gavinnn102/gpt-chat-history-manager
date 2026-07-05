@@ -1,0 +1,32 @@
+# Private archive data
+data/
+inbox/
+backups/
+exports/
+reports/
+logs/
+dist/
+
+# Generated viewer snapshots
+GPT聊天记录资料库.html
+GPT聊天记录资料库_静态测试.html
+
+# Import workflow artifacts
+pending_import_*.json
+classified_import_*.json
+ai_work_packet_*.json
+ai_work_packet_*.md
+
+# Python and editor files
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Windows shortcuts and local files
+*.lnk
+*.log
+*.tmp
