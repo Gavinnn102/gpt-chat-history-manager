@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GPT 聊天记录资料库</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"], ["$$", "$$"]],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-title">GPT 聊天记录资料库</div>
+          <div class="brand-subtitle" id="rootPath"></div>
+        </div>
+        <nav id="categoryList" class="category-list"></nav>
+      </aside>
+
+      <main class="main">
+        <header class="toolbar">
+          <div class="search-wrap">
+            <input id="searchInput" type="search" placeholder="搜索标题、摘要、关键词、原回答" />
+          </div>
+          <button id="categoryButton" class="button">分类管理</button>
+          <button id="refreshButton" class="button">刷新</button>
+          <button id="exportButton" class="button primary">导出</button>
+        </header>
+
+        <section class="stats" id="stats"></section>
+
+        <section class="content">
+          <div class="list-pane">
+            <div class="list-head">
+              <span id="activeLabel">全部会话</span>
+              <span id="resultCount"></span>
+            </div>
+            <div id="conversationList" class="conversation-list"></div>
+          </div>
+
+          <article class="detail-pane" id="detailPane">
+            <div class="empty-state">选择一个会话查看原始问答</div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <div id="categoryModal" class="modal-backdrop" hidden>
+      <section class="modal">
+        <div class="modal-head">
+          <div>
+            <div class="modal-title">分类管理</div>
+            <div class="modal-subtitle">分类保存在 data/categories.json，可直接编辑，也可在这里管理。</div>
+          </div>
+          <button id="closeCategoryModal" class="icon-button" title="关闭">×</button>
+        </div>
+        <div id="categoryRows" class="category-editor"></div>
+        <div class="category-options">
+          <label>
+            <input id="moveDeletedCheckbox" type="checkbox" />
+            删除仍有会话的分类时，把这些会话移动到待处理
+          </label>
+        </div>
+        <div id="categoryMessage" class="modal-message"></div>
+        <div class="modal-actions">
+          <button id="addCategoryButton" class="button">新增分类</button>
+          <span class="modal-spacer"></span>
+          <button id="cancelCategoryButton" class="button">取消</button>
+          <button id="saveCategoriesButton" class="button primary">保存</button>
+        </div>
+      </section>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
